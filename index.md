@@ -77,29 +77,31 @@ Cocok untuk siapa saja yang ingin meng-host portfolio, blog, dokumentasi, atau w
 
 ---
 
-### [Tutorial Lengkap Relational Database dengan SQLite: Dari Pemula hingga Mahir](pages/tutorial-relational-database-sqlite.md)
+### [Tutorial Database: Normalisasi dan Relasi](pages/tutorial-database-normalisasi-dan-relasi.md)
 
-Panduan komprehensif untuk menguasai relational database menggunakan SQLite, dari konsep dasar hingga implementasi project perpustakaan lengkap. Tutorial ini mencakup:
+![Database Normalisasi](images/database-normalisasi.svg)
 
-- **Konsep Fundamental Database** - Database, RDBMS, SQL, dan relational model
-- **Sejarah Database** - Evolution dari flat files hingga modern relational database
-- **SQLite Installation** - Setup di Windows, Mac, dan Linux dengan command-line interface
-- **Tipe Data dan Schema** - INTEGER, TEXT, REAL, BLOB, dan database design
-- **Operasi CRUD** - INSERT, SELECT, UPDATE, DELETE dengan contoh praktis
-- **Filtering dan Sorting** - WHERE, ORDER BY, LIMIT, dan pagination
-- **Aggregation Functions** - COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING
-- **JOIN Operations** - INNER JOIN, LEFT JOIN, multiple JOINs untuk query complex data
-- **Relationships** - One-to-one, one-to-many, many-to-many relationships dengan junction tables
-- **Normalisasi** - 1NF, 2NF, 3NF untuk menghilangkan redundancy dan improve integrity
-- **Constraints** - PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT
-- **Indexes** - Performance optimization untuk faster queries
-- **Transactions** - ACID properties dan transaction management
-- **Project Praktis** - Complete library management system dengan books, members, loans
-- **Best Practices** - Naming conventions, security, backup, dan query optimization
+Panduan lengkap untuk memahami konsep normalisasi database dan relasi antar tabel. Tutorial komprehensif ini mencakup:
 
-Tutorial ini sangat cocok untuk mahasiswa, developer pemula hingga intermediate yang ingin menguasai database sebagai skill fundamental programming.
+- **Pengantar Database** - Konsep dasar database relasional dan pentingnya normalisasi
+- **Normalisasi Database** - Proses mengorganisir data untuk mengurangi redundansi
+- **First Normal Form (1NF)** - Nilai atomik dan eliminasi grup berulang dengan contoh
+- **Second Normal Form (2NF)** - Menghilangkan partial dependency pada composite key
+- **Third Normal Form (3NF)** - Menghapus transitive dependency antar atribut
+- **Boyce-Codd Normal Form (BCNF)** - Versi lebih ketat dari 3NF untuk kasus khusus
+- **Contoh Proses Normalisasi** - Step-by-step dari tabel tidak normal hingga 3NF
+- **Relasi One-to-One (1:1)** - Hubungan satu ke satu dengan contoh Siswa dan KTP
+- **Relasi One-to-Many (1:N)** - Hubungan satu ke banyak dengan contoh Dosen dan Mata Kuliah
+- **Relasi Many-to-Many (M:N)** - Junction table untuk relasi banyak ke banyak
+- **Implementasi SQL** - Schema database sistem akademik lengkap dengan foreign keys
+- **Contoh Query** - JOIN operations, agregasi, dan query kompleks
+- **Entity Relationship Diagram (ERD)** - Visualisasi relasi antar tabel
+- **Best Practices** - Indexing, foreign key constraints, naming convention, denormalisasi
+- **Latihan Soal** - Praktik identifikasi pelanggaran normalisasi dan desain schema
 
-**📖 [Baca Selengkapnya →](pages/tutorial-relational-database-sqlite.md)**
+Tutorial ini sangat cocok untuk mahasiswa informatika, database administrator, dan developer yang ingin menguasai desain database yang efisien, scalable, dan mudah dimaintain.
+
+**📖 [Baca Selengkapnya →](pages/tutorial-database-normalisasi-dan-relasi.md)**
 
 ---
 
