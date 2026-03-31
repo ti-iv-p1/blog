@@ -22,7 +22,7 @@ Cocok untuk pemula yang ingin memulai menulis dokumentasi atau content dengan fo
 
 ---
 
-### [Tutorial Membuat Aplikasi CRUD Data Mahasiswa dengan Express.js dan Handlebars](pages/belajar-express-dan-handlebars.md)
+### [Tutorial Membuat Aplikasi CRUD Data Mahasiswa dengan Express.js dan Handlebars](pages/tutorial-membuat-aplikasi-crud-data-mahasiswa-dengan-expressjs-dan-handlebars.md)
 
 Tutorial lengkap step-by-step untuk membuat aplikasi web CRUD (Create, Read, Update, Delete) menggunakan stack modern Node.js. Artikel ini mencakup:
 
