@@ -105,4 +105,33 @@ Tutorial ini sangat cocok untuk mahasiswa informatika, database administrator, d
 
 ---
 
+### [Tutorial DBML (Database Markup Language): Desain Database dengan Mudah](pages/tutorial-dbml-database-markup-language.md)
+
+![DBML Hero](images/dbml-hero.svg)
+
+Panduan lengkap untuk menguasai DBML, bahasa markup modern untuk mendefinisikan dan mendokumentasikan struktur database. Tutorial ini mencakup:
+
+- **Pengantar DBML** - Apa itu Database Markup Language dan keuntungannya
+- **Perbandingan SQL vs DBML** - Lebih simple, readable, dan maintainable
+- **Syntax Dasar DBML** - Struktur file, komentar, dan elemen-elemen dasar
+- **Mendefinisikan Tabel** - Table definition dengan schema, aliases, dan notes
+- **Tipe Data dan Constraints** - INTEGER, VARCHAR, TEXT, DATE dengan pk, unique, not null
+- **Column Settings** - Primary key, foreign key, default values, auto increment
+- **Mendefinisikan Relasi** - One-to-One (1:1), One-to-Many (1:N), Many-to-Many (M:N)
+- **Relationship Syntax** - Inline references dan separate Ref blocks
+- **Indexes** - Single column, composite index, dan index types (btree, hash)
+- **Enum Types** - Type-safe status dan category definitions
+- **Table Groups** - Organize tables untuk dokumentasi yang lebih baik
+- **Tools dan Platform** - dbdiagram.io, DBML CLI, VS Code extensions
+- **Export ke SQL** - Convert ke PostgreSQL, MySQL, SQL Server, SQLite
+- **Contoh Project E-Commerce** - Complete schema dengan users, products, orders
+- **Best Practices** - Naming conventions, documentation, version control
+- **Integration** - Git workflow, CI/CD, dan team collaboration
+
+Tutorial ini sangat cocok untuk database designers, backend developers, dan tim yang ingin improve database development workflow dengan dokumentasi yang readable dan maintainable.
+
+**📖 [Baca Selengkapnya →](pages/tutorial-dbml-database-markup-language.md)**
+
+---
+
 _Terakhir diupdate: 31 Maret 2026_

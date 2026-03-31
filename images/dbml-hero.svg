@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative grid lines -->
+  <g opacity="0.1">
+    <line x1="0" y1="100" x2="800" y2="100" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="0" y1="200" x2="800" y2="200" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="400" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="400" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="400" stroke="#60a5fa" stroke-width="1"/>
+  </g>
+  
+  <!-- Code window -->
+  <g transform="translate(50, 60)">
+    <!-- Window frame -->
+    <rect width="320" height="220" fill="#1e293b" rx="8" stroke="#3b82f6" stroke-width="2"/>
+    
+    <!-- Window header -->
+    <rect width="320" height="30" fill="#334155" rx="8"/>
+    <rect y="30" width="320" height="8" fill="url(#codeGradient)"/>
+    
+    <!-- Window controls -->
+    <circle cx="15" cy="15" r="5" fill="#ef4444"/>
+    <circle cx="35" cy="15" r="5" fill="#f59e0b"/>
+    <circle cx="55" cy="15" r="5" fill="#10b981"/>
+    
+    <!-- File name -->
+    <text x="80" y="21" fill="#94a3b8" font-family="monospace" font-size="12">schema.dbml</text>
+    
+    <!-- DBML Code -->
+    <text x="15" y="60" fill="#a78bfa" font-family="monospace" font-size="11" font-weight="bold">Table</text>
+    <text x="58" y="60" fill="#60a5fa" font-family="monospace" font-size="11">users</text>
+    <text x="106" y="60" fill="#94a3b8" font-family="monospace" font-size="11">{</text>
+    
+    <text x="25" y="80" fill="#f472b6" font-family="monospace" font-size="11">id</text>
+    <text x="50" y="80" fill="#fbbf24" font-family="monospace" font-size="11">int</text>
+    <text x="80" y="80" fill="#94a3b8" font-family="monospace" font-size="11">[pk]</text>
+    
+    <text x="25" y="100" fill="#f472b6" font-family="monospace" font-size="11">name</text>
+    <text x="68" y="100" fill="#fbbf24" font-family="monospace" font-size="11">varchar</text>
+    
+    <text x="25" y="120" fill="#f472b6" font-family="monospace" font-size="11">email</text>
+    <text x="68" y="120" fill="#fbbf24" font-family="monospace" font-size="11">varchar</text>
+    
+    <text x="15" y="140" fill="#94a3b8" font-family="monospace" font-size="11">}</text>
+    
+    <text x="15" y="170" fill="#a78bfa" font-family="monospace" font-size="11" font-weight="bold">Table</text>
+    <text x="58" y="170" fill="#60a5fa" font-family="monospace" font-size="11">posts</text>
+    <text x="106" y="170" fill="#94a3b8" font-family="monospace" font-size="11">{</text>
+    
+    <text x="25" y="190" fill="#f472b6" font-family="monospace" font-size="11">id</text>
+    <text x="50" y="190" fill="#fbbf24" font-family="monospace" font-size="11">int</text>
+    <text x="80" y="190" fill="#94a3b8" font-family="monospace" font-size="11">[pk]</text>
+    
+    <text x="25" y="210" fill="#f472b6" font-family="monospace" font-size="11">user_id</text>
+    <text x="83" y="210" fill="#fbbf24" font-family="monospace" font-size="11">int</text>
+    <text x="113" y="210" fill="#94a3b8" font-family="monospace" font-size="11">[</text>
+    <text x="118" y="210" fill="#10b981" font-family="monospace" font-size="11">ref:</text>
+    <text x="145" y="210" fill="#94a3b8" font-family="monospace" font-size="11">&gt;</text>
+    
+    <text x="25" y="230" fill="#f472b6" font-family="monospace" font-size="11">title</text>
+    <text x="68" y="230" fill="#fbbf24" font-family="monospace" font-size="11">varchar</text>
+    
+    <text x="15" y="250" fill="#94a3b8" font-family="monospace" font-size="11">}</text>
+  </g>
+  
+  <!-- Arrow pointing to diagram -->
+  <g>
+    <defs>
+      <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
+      </marker>
+    </defs>
+    <path d="M 380 170 Q 420 170 450 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowhead2)" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- ERD Diagram representation -->
+  <g transform="translate(460, 60)">
+    <!-- Table 1 - Users -->
+    <g>
+      <rect width="140" height="100" fill="#1e293b" rx="6" stroke="#3b82f6" stroke-width="2"/>
+      <rect width="140" height="28" fill="#3b82f6" rx="6"/>
+      <text x="70" y="19" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Users</text>
+      
+      <g transform="translate(10, 38)">
+        <text y="12" fill="#fbbf24" font-family="monospace" font-size="10">🔑 id</text>
+        <text y="27" fill="#94a3b8" font-family="monospace" font-size="10">   name</text>
+        <text y="42" fill="#94a3b8" font-family="monospace" font-size="10">   email</text>
+      </g>
+    </g>
+    
+    <!-- Table 2 - Posts -->
+    <g transform="translate(0, 130)">
+      <rect width="140" height="100" fill="#1e293b" rx="6" stroke="#8b5cf6" stroke-width="2"/>
+      <rect width="140" height="28" fill="#8b5cf6" rx="6"/>
+      <text x="70" y="19" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Posts</text>
+      
+      <g transform="translate(10, 38)">
+        <text y="12" fill="#fbbf24" font-family="monospace" font-size="10">🔑 id</text>
+        <text y="27" fill="#10b981" font-family="monospace" font-size="10">🔗 user_id</text>
+        <text y="42" fill="#94a3b8" font-family="monospace" font-size="10">   title</text>
+      </g>
+    </g>
+    
+    <!-- Relationship line -->
+    <line x1="70" y1="100" x2="70" y2="130" stroke="#10b981" stroke-width="3"/>
+    <circle cx="70" cy="100" r="4" fill="#10b981"/>
+    <text x="80" y="120" fill="#10b981" font-family="Arial, sans-serif" font-size="12" font-weight="bold">1:N</text>
+    
+    <!-- Arrow at bottom -->
+    <polygon points="70,126 66,120 74,120" fill="#10b981"/>
+  </g>
+  
+  <!-- Features boxes -->
+  <g transform="translate(50, 310)">
+    <!-- Feature 1 -->
+    <rect width="100" height="50" fill="#1e293b" rx="6" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="50" y="22" text-anchor="middle" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Simple</text>
+    <text x="50" y="37" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">Easy to Read</text>
+    
+    <!-- Feature 2 -->
+    <rect x="115" width="100" height="50" fill="#1e293b" rx="6" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="165" y="22" text-anchor="middle" fill="#a78bfa" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Visual</text>
+    <text x="165" y="37" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">Auto Diagram</text>
+    
+    <!-- Feature 3 -->
+    <rect x="230" width="100" height="50" fill="#1e293b" rx="6" stroke="#10b981" stroke-width="1.5"/>
+    <text x="280" y="22" text-anchor="middle" fill="#34d399" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Portable</text>
+    <text x="280" y="37" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">Export SQL</text>
+  </g>
+  
+  <!-- Right side decorative elements -->
+  <g transform="translate(650, 280)">
+    <!-- Brackets -->
+    <path d="M 5 10 L 0 10 L 0 50 L 5 50" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <path d="M 95 10 L 100 10 L 100 50 L 95 50" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    
+    <!-- Center content -->
+    <text x="50" y="22" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="11">ref:</text>
+    <text x="50" y="38" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">table.col</text>
+    <text x="50" y="54" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">&gt; ref.id</text>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="400" y="50" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="bold">DBML</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="380" text-anchor="middle" fill="url(#codeGradient)" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Database Markup Language</text>
+  
+  <!-- Decorative code brackets in corner -->
+  <g opacity="0.3">
+    <text x="20" y="30" fill="#60a5fa" font-family="monospace" font-size="24">&lt;</text>
+    <text x="765" y="30" fill="#60a5fa" font-family="monospace" font-size="24">/&gt;</text>
+  </g>
+  
+  <!-- Glow effects -->
+  <circle cx="370" cy="170" r="80" fill="url(#glowGradient)" opacity="0.3">
+    <animate attributeName="r" values="80;90;80" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Decorative dots -->
+  <circle cx="720" cy="100" r="3" fill="#60a5fa" opacity="0.6"/>
+  <circle cx="740" cy="90" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="730" cy="120" r="2.5" fill="#3b82f6" opacity="0.6"/>
+</svg>
