@@ -1,5 +1,7 @@
 # Markdown: Pengertian, Fungsi, dan Panduan Lengkap untuk Pemula hingga Mahir
 
+![Markdown Banner](../images/markdown-hero.svg)
+
 > **Panduan Komprehensif tentang Markdown** - Dari konsep dasar hingga penggunaan advanced untuk dokumentasi profesional
 
 ---

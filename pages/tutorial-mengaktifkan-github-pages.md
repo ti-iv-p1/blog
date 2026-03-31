@@ -1,8 +1,12 @@
 # Tutorial Mengaktifkan GitHub Pages
 
+![GitHub Pages Banner](../images/github-pages-hero.svg)
+
 ## Apa itu GitHub Pages?
 
 GitHub Pages adalah layanan hosting statis gratis yang disediakan oleh GitHub. Dengan GitHub Pages, Anda dapat meng-host website langsung dari repository GitHub Anda. Cocok untuk portfolio, dokumentasi proyek, blog, atau landing page.
+
+![GitHub Pages Deployment Process](../images/github-pages-deployment.svg)
 
 ## Keuntungan Menggunakan GitHub Pages
 

@@ -1,5 +1,7 @@
 # Tutorial Git dan GitHub untuk Pemula
 
+![Git dan GitHub Banner](../images/git-github-hero.svg)
+
 ## Daftar Isi
 
 - [Apa itu Git?](#apa-itu-git)
@@ -217,6 +219,8 @@ cd nama-repo
 
 ## Workflow Git yang Umum
 
+![Git Workflow Diagram](../images/git-workflow.svg)
+
 ### 1. Alur Kerja Dasar
 
 ```bash
@@ -263,6 +267,8 @@ git push origin main
 ---
 
 ## Branching dan Merging
+
+![Git Branching Strategy](../images/git-branching.svg)
 
 ### Apa itu Branch?
 

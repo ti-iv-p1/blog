@@ -1,5 +1,7 @@
 # Blog Tutorial dan Panduan
 
+![Blog Banner](images/blog-banner.svg)
+
 Selamat datang di blog tutorial! Di sini Anda akan menemukan berbagai artikel panduan dan tutorial pemrograman.
 
 ---
