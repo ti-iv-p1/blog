@@ -77,4 +77,30 @@ Cocok untuk siapa saja yang ingin meng-host portfolio, blog, dokumentasi, atau w
 
 ---
 
+### [Tutorial Lengkap Relational Database dengan SQLite: Dari Pemula hingga Mahir](pages/tutorial-relational-database-sqlite.md)
+
+Panduan komprehensif untuk menguasai relational database menggunakan SQLite, dari konsep dasar hingga implementasi project perpustakaan lengkap. Tutorial ini mencakup:
+
+- **Konsep Fundamental Database** - Database, RDBMS, SQL, dan relational model
+- **Sejarah Database** - Evolution dari flat files hingga modern relational database
+- **SQLite Installation** - Setup di Windows, Mac, dan Linux dengan command-line interface
+- **Tipe Data dan Schema** - INTEGER, TEXT, REAL, BLOB, dan database design
+- **Operasi CRUD** - INSERT, SELECT, UPDATE, DELETE dengan contoh praktis
+- **Filtering dan Sorting** - WHERE, ORDER BY, LIMIT, dan pagination
+- **Aggregation Functions** - COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING
+- **JOIN Operations** - INNER JOIN, LEFT JOIN, multiple JOINs untuk query complex data
+- **Relationships** - One-to-one, one-to-many, many-to-many relationships dengan junction tables
+- **Normalisasi** - 1NF, 2NF, 3NF untuk menghilangkan redundancy dan improve integrity
+- **Constraints** - PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT
+- **Indexes** - Performance optimization untuk faster queries
+- **Transactions** - ACID properties dan transaction management
+- **Project Praktis** - Complete library management system dengan books, members, loans
+- **Best Practices** - Naming conventions, security, backup, dan query optimization
+
+Tutorial ini sangat cocok untuk mahasiswa, developer pemula hingga intermediate yang ingin menguasai database sebagai skill fundamental programming.
+
+**📖 [Baca Selengkapnya →](pages/tutorial-relational-database-sqlite.md)**
+
+---
+
 _Terakhir diupdate: 31 Maret 2026_
