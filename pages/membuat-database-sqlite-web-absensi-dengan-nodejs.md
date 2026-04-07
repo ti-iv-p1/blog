@@ -165,15 +165,17 @@ db.pragma("foreign_keys = ON");
 #### Tabel Pengguna
 
 ```javascript
-CREATE TABLE IF NOT EXISTS pengguna (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  nama TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL,
-  peran TEXT NOT NULL CHECK(peran IN ('admin', 'dosen', 'mahasiswa')),
-  dibuat_pada DATETIME DEFAULT CURRENT_TIMESTAMP,
-  diperbarui_pada DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS pengguna (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nama TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    peran TEXT NOT NULL CHECK(peran IN ('admin', 'dosen', 'mahasiswa')),
+    dibuat_pada DATETIME DEFAULT CURRENT_TIMESTAMP,
+    diperbarui_pada DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -201,14 +203,16 @@ CREATE TABLE IF NOT EXISTS pengguna (
 #### Tabel Mahasiswa
 
 ```javascript
-CREATE TABLE IF NOT EXISTS mahasiswa (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  pengguna_id INTEGER NOT NULL,
-  nim TEXT UNIQUE NOT NULL,
-  program_studi TEXT,
-  angkatan INTEGER,
-  FOREIGN KEY (pengguna_id) REFERENCES pengguna(id) ON DELETE CASCADE
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS mahasiswa (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pengguna_id INTEGER NOT NULL,
+    nim TEXT UNIQUE NOT NULL,
+    program_studi TEXT,
+    angkatan INTEGER,
+    FOREIGN KEY (pengguna_id) REFERENCES pengguna(id) ON DELETE CASCADE
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -230,13 +234,15 @@ CREATE TABLE IF NOT EXISTS mahasiswa (
 #### Tabel Dosen
 
 ```javascript
-CREATE TABLE IF NOT EXISTS dosen (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  pengguna_id INTEGER NOT NULL,
-  nidn TEXT UNIQUE NOT NULL,
-  departemen TEXT,
-  FOREIGN KEY (pengguna_id) REFERENCES pengguna(id) ON DELETE CASCADE
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS dosen (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pengguna_id INTEGER NOT NULL,
+    nidn TEXT UNIQUE NOT NULL,
+    departemen TEXT,
+    FOREIGN KEY (pengguna_id) REFERENCES pengguna(id) ON DELETE CASCADE
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -251,12 +257,14 @@ CREATE TABLE IF NOT EXISTS dosen (
 #### Tabel Mata Kuliah
 
 ```javascript
-CREATE TABLE IF NOT EXISTS mata_kuliah (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  kode TEXT UNIQUE NOT NULL,
-  nama TEXT NOT NULL,
-  sks INTEGER NOT NULL
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS mata_kuliah (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kode TEXT UNIQUE NOT NULL,
+    nama TEXT NOT NULL,
+    sks INTEGER NOT NULL
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -273,16 +281,18 @@ CREATE TABLE IF NOT EXISTS mata_kuliah (
 #### Tabel Kelas
 
 ```javascript
-CREATE TABLE IF NOT EXISTS kelas (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  mata_kuliah_id INTEGER NOT NULL,
-  dosen_id INTEGER NOT NULL,
-  nama_kelas TEXT NOT NULL,
-  semester TEXT NOT NULL,
-  tahun_akademik TEXT NOT NULL,
-  FOREIGN KEY (mata_kuliah_id) REFERENCES mata_kuliah(id) ON DELETE CASCADE,
-  FOREIGN KEY (dosen_id) REFERENCES dosen(id) ON DELETE CASCADE
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS kelas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mata_kuliah_id INTEGER NOT NULL,
+    dosen_id INTEGER NOT NULL,
+    nama_kelas TEXT NOT NULL,
+    semester TEXT NOT NULL,
+    tahun_akademik TEXT NOT NULL,
+    FOREIGN KEY (mata_kuliah_id) REFERENCES mata_kuliah(id) ON DELETE CASCADE,
+    FOREIGN KEY (dosen_id) REFERENCES dosen(id) ON DELETE CASCADE
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -300,13 +310,15 @@ CREATE TABLE IF NOT EXISTS kelas (
 #### Tabel Peserta Kelas
 
 ```javascript
-CREATE TABLE IF NOT EXISTS peserta_kelas (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  mahasiswa_id INTEGER NOT NULL,
-  kelas_id INTEGER NOT NULL,
-  FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) ON DELETE CASCADE,
-  FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS peserta_kelas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mahasiswa_id INTEGER NOT NULL,
+    kelas_id INTEGER NOT NULL,
+    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) ON DELETE CASCADE,
+    FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -319,16 +331,18 @@ CREATE TABLE IF NOT EXISTS peserta_kelas (
 #### Tabel Sesi Absensi
 
 ```javascript
-CREATE TABLE IF NOT EXISTS sesi_absensi (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  kelas_id INTEGER NOT NULL,
-  pertemuan_ke INTEGER NOT NULL,
-  topik TEXT,
-  tanggal DATE NOT NULL,
-  jam_mulai TIME NOT NULL,
-  jam_selesai TIME NOT NULL,
-  FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS sesi_absensi (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kelas_id INTEGER NOT NULL,
+    pertemuan_ke INTEGER NOT NULL,
+    topik TEXT,
+    tanggal DATE NOT NULL,
+    jam_mulai TIME NOT NULL,
+    jam_selesai TIME NOT NULL,
+    FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -347,15 +361,17 @@ CREATE TABLE IF NOT EXISTS sesi_absensi (
 #### Tabel Absensi
 
 ```javascript
-CREATE TABLE IF NOT EXISTS absensi (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  sesi_id INTEGER NOT NULL,
-  mahasiswa_id INTEGER NOT NULL,
-  status TEXT NOT NULL CHECK(status IN ('hadir', 'izin', 'sakit', 'alpha')),
-  waktu_absen DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (sesi_id) REFERENCES sesi_absensi(id) ON DELETE CASCADE,
-  FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) ON DELETE CASCADE
-);
+db.exec(`
+  CREATE TABLE IF NOT EXISTS absensi (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sesi_id INTEGER NOT NULL,
+    mahasiswa_id INTEGER NOT NULL,
+    status TEXT NOT NULL CHECK(status IN ('hadir', 'izin', 'sakit', 'alpha')),
+    waktu_absen DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sesi_id) REFERENCES sesi_absensi(id) ON DELETE CASCADE,
+    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) ON DELETE CASCADE
+  );
+`);
 ```
 
 **Penjelasan Detail:**
@@ -374,15 +390,17 @@ CREATE TABLE IF NOT EXISTS absensi (
 ### 5. Membuat Indexes
 
 ```javascript
-CREATE INDEX IF NOT EXISTS idx_mahasiswa_pengguna ON mahasiswa(pengguna_id);
-CREATE INDEX IF NOT EXISTS idx_dosen_pengguna ON dosen(pengguna_id);
-CREATE INDEX IF NOT EXISTS idx_kelas_mata_kuliah ON kelas(mata_kuliah_id);
-CREATE INDEX IF NOT EXISTS idx_kelas_dosen ON kelas(dosen_id);
-CREATE INDEX IF NOT EXISTS idx_peserta_mahasiswa ON peserta_kelas(mahasiswa_id);
-CREATE INDEX IF NOT EXISTS idx_peserta_kelas ON peserta_kelas(kelas_id);
-CREATE INDEX IF NOT EXISTS idx_sesi_kelas ON sesi_absensi(kelas_id);
-CREATE INDEX IF NOT EXISTS idx_absensi_sesi ON absensi(sesi_id);
-CREATE INDEX IF NOT EXISTS idx_absensi_mahasiswa ON absensi(mahasiswa_id);
+db.exec(`
+  CREATE INDEX IF NOT EXISTS idx_mahasiswa_pengguna ON mahasiswa(pengguna_id);
+  CREATE INDEX IF NOT EXISTS idx_dosen_pengguna ON dosen(pengguna_id);
+  CREATE INDEX IF NOT EXISTS idx_kelas_mata_kuliah ON kelas(mata_kuliah_id);
+  CREATE INDEX IF NOT EXISTS idx_kelas_dosen ON kelas(dosen_id);
+  CREATE INDEX IF NOT EXISTS idx_peserta_mahasiswa ON peserta_kelas(mahasiswa_id);
+  CREATE INDEX IF NOT EXISTS idx_peserta_kelas ON peserta_kelas(kelas_id);
+  CREATE INDEX IF NOT EXISTS idx_sesi_kelas ON sesi_absensi(kelas_id);
+  CREATE INDEX IF NOT EXISTS idx_absensi_sesi ON absensi(sesi_id);
+  CREATE INDEX IF NOT EXISTS idx_absensi_mahasiswa ON absensi(mahasiswa_id);
+`);
 ```
 
 **Penjelasan Detail:**
@@ -413,19 +431,40 @@ Index adalah struktur data yang mempercepat pencarian data dalam database. Tanpa
 - Kolom foreign key sebaiknya selalu di-index
 - Jangan terlalu banyak index karena akan memperlambat INSERT/UPDATE
 
-### 6. Menjalankan Query
+### 6. Menjalankan Query dengan db.exec()
+
+**Method `db.exec()`:**
+
+- Method untuk menjalankan satu atau lebih SQL statement sekaligus
+- Cocok untuk DDL (Data Definition Language) seperti CREATE TABLE dan CREATE INDEX
+- Tidak mengembalikan data, hanya mengeksekusi perintah
+- Ideal untuk setup dan inisialisasi database
+
+**Contoh Penggunaan:**
 
 ```javascript
+// Membuat satu tabel
 db.exec(`
-  -- SQL queries here
+  CREATE TABLE IF NOT EXISTS pengguna (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nama TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL
+  );
+`);
+
+// Membuat beberapa tabel sekaligus
+db.exec(`
+  CREATE TABLE IF NOT EXISTS tabel1 (id INTEGER PRIMARY KEY);
+  CREATE TABLE IF NOT EXISTS tabel2 (id INTEGER PRIMARY KEY);
+  CREATE INDEX IF NOT EXISTS idx_tabel1 ON tabel1(id);
 `);
 ```
 
-**Penjelasan:**
+**Catatan Penting:**
 
-- **`db.exec()`**: Method untuk menjalankan satu atau lebih SQL statement
-- Cocok untuk DDL (Data Definition Language) seperti CREATE TABLE
-- Tidak mengembalikan data, cocok untuk setup database
+- Setiap perintah CREATE TABLE/INDEX di atas harus dibungkus dengan `db.exec()`
+- Anda bisa menjalankan semua perintah CREATE TABLE dalam satu `db.exec()` atau terpisah
+- Untuk contoh lengkap, lihat bagian "Kode Lengkap File index.js" di bawah
 
 ### 7. Pesan Sukses
 
@@ -437,6 +476,130 @@ console.log("Database tables created successfully!");
 
 - Menampilkan pesan konfirmasi bahwa semua tabel berhasil dibuat
 - Membantu dalam monitoring eksekusi script
+
+### 8. Kode Lengkap File index.js
+
+Berikut adalah kode lengkap yang menggabungkan semua langkah di atas. Anda dapat menyalin kode ini ke file `index.js`:
+
+```javascript
+const Database = require("better-sqlite3");
+
+// Inisialisasi database dengan opsi verbose untuk melihat query yang dijalankan
+const db = new Database("absensi.db", { verbose: console.log });
+
+// Aktifkan foreign keys
+db.pragma("foreign_keys = ON");
+
+// Buat semua tabel sekaligus
+db.exec(`
+  -- Tabel Pengguna
+  CREATE TABLE IF NOT EXISTS pengguna (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nama TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    peran TEXT NOT NULL CHECK(peran IN ('admin', 'dosen', 'mahasiswa')),
+    dibuat_pada DATETIME DEFAULT CURRENT_TIMESTAMP,
+    diperbarui_pada DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+
+  -- Tabel Mahasiswa
+  CREATE TABLE IF NOT EXISTS mahasiswa (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pengguna_id INTEGER NOT NULL,
+    nim TEXT UNIQUE NOT NULL,
+    program_studi TEXT,
+    angkatan INTEGER,
+    FOREIGN KEY (pengguna_id) REFERENCES pengguna(id) ON DELETE CASCADE
+  );
+
+  -- Tabel Dosen
+  CREATE TABLE IF NOT EXISTS dosen (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pengguna_id INTEGER NOT NULL,
+    nidn TEXT UNIQUE NOT NULL,
+    departemen TEXT,
+    FOREIGN KEY (pengguna_id) REFERENCES pengguna(id) ON DELETE CASCADE
+  );
+
+  -- Tabel Mata Kuliah
+  CREATE TABLE IF NOT EXISTS mata_kuliah (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kode TEXT UNIQUE NOT NULL,
+    nama TEXT NOT NULL,
+    sks INTEGER NOT NULL
+  );
+
+  -- Tabel Kelas
+  CREATE TABLE IF NOT EXISTS kelas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mata_kuliah_id INTEGER NOT NULL,
+    dosen_id INTEGER NOT NULL,
+    nama_kelas TEXT NOT NULL,
+    semester TEXT NOT NULL,
+    tahun_akademik TEXT NOT NULL,
+    FOREIGN KEY (mata_kuliah_id) REFERENCES mata_kuliah(id) ON DELETE CASCADE,
+    FOREIGN KEY (dosen_id) REFERENCES dosen(id) ON DELETE CASCADE
+  );
+
+  -- Tabel Peserta Kelas
+  CREATE TABLE IF NOT EXISTS peserta_kelas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mahasiswa_id INTEGER NOT NULL,
+    kelas_id INTEGER NOT NULL,
+    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) ON DELETE CASCADE,
+    FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
+  );
+
+  -- Tabel Sesi Absensi
+  CREATE TABLE IF NOT EXISTS sesi_absensi (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kelas_id INTEGER NOT NULL,
+    pertemuan_ke INTEGER NOT NULL,
+    topik TEXT,
+    tanggal DATE NOT NULL,
+    jam_mulai TIME NOT NULL,
+    jam_selesai TIME NOT NULL,
+    FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
+  );
+
+  -- Tabel Absensi
+  CREATE TABLE IF NOT EXISTS absensi (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sesi_id INTEGER NOT NULL,
+    mahasiswa_id INTEGER NOT NULL,
+    status TEXT NOT NULL CHECK(status IN ('hadir', 'izin', 'sakit', 'alpha')),
+    waktu_absen DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sesi_id) REFERENCES sesi_absensi(id) ON DELETE CASCADE,
+    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) ON DELETE CASCADE
+  );
+
+  -- Buat indexes untuk performa
+  CREATE INDEX IF NOT EXISTS idx_mahasiswa_pengguna ON mahasiswa(pengguna_id);
+  CREATE INDEX IF NOT EXISTS idx_dosen_pengguna ON dosen(pengguna_id);
+  CREATE INDEX IF NOT EXISTS idx_kelas_mata_kuliah ON kelas(mata_kuliah_id);
+  CREATE INDEX IF NOT EXISTS idx_kelas_dosen ON kelas(dosen_id);
+  CREATE INDEX IF NOT EXISTS idx_peserta_mahasiswa ON peserta_kelas(mahasiswa_id);
+  CREATE INDEX IF NOT EXISTS idx_peserta_kelas ON peserta_kelas(kelas_id);
+  CREATE INDEX IF NOT EXISTS idx_sesi_kelas ON sesi_absensi(kelas_id);
+  CREATE INDEX IF NOT EXISTS idx_absensi_sesi ON absensi(sesi_id);
+  CREATE INDEX IF NOT EXISTS idx_absensi_mahasiswa ON absensi(mahasiswa_id);
+`);
+
+console.log("Database tables created successfully!");
+
+// Tutup koneksi database
+db.close();
+```
+
+**Penjelasan Struktur Kode:**
+
+1. **Import Library**: Menggunakan `require()` untuk mengimport better-sqlite3
+2. **Inisialisasi Database**: Membuat koneksi dengan opsi verbose untuk debugging
+3. **Aktifkan Foreign Keys**: Menggunakan PRAGMA untuk mengaktifkan constraint
+4. **Eksekusi SQL**: Menjalankan semua perintah CREATE TABLE dan CREATE INDEX dalam satu `db.exec()`
+5. **Pesan Sukses**: Menampilkan konfirmasi setelah selesai
+6. **Tutup Koneksi**: Menutup koneksi database setelah selesai (opsional untuk script one-time)
 
 ## Menjalankan Aplikasi
 
