@@ -33,6 +33,32 @@ Tutorial ini sangat cocok untuk mahasiswa atau developer yang ingin belajar memb
 
 ---
 
+### [Penjelasan Lengkap Tutorial Project Web Absensi - Bagian 1](pages/penjelasan-tutorial-project-web-absensi-bagian-1.md)
+
+**📅 Dipublikasikan: 18 Mei 2026**
+
+Panduan penjelasan mendalam yang membahas setiap baris dan blok kode dari tutorial web absensi. Dokumen ini sangat cocok untuk pemula yang ingin memahami secara detail cara kerja setiap kode. Artikel ini mencakup:
+
+- **Persiapan Lingkungan** - Penjelasan detail mkdir, cd, npm init dengan flag -y
+- **Instalasi Dependencies** - Fungsi setiap package (express, handlebars, sqlite3, bcrypt, bootstrap)
+- **Package.json** - Penjelasan setiap field: name, version, main, scripts, dependencies, devDependencies
+- **Struktur Direktori** - Peran direktori database, models, controllers, routes, views
+- **Entry Point Express** - Penjelasan require(), app instance, middleware, route handler
+- **Express.urlencoded** - Cara kerja form parsing dengan extended option
+- **Konfigurasi Handlebars** - Setup template engine, extname, defaultLayout, layoutsDir
+- **Custom Helpers** - Fungsi inc dan eq untuk logika di template
+- **View Engine Setup** - Cara Express menemukan dan merender template .hbs
+- **Static Files Middleware** - Serving Bootstrap dari node_modules, penjelasan path.join
+- **Layout Main.hbs** - Struktur HTML, navbar Bootstrap, dan placeholder {{{body}}}
+- **Request & Response Objects** - Penjelasan detail req dan res di Express
+- **Handlebars Syntax** - Placeholder, helpers, conditionals, dan loops
+
+Tutorial ini memberikan pemahaman line-by-line untuk setiap kode, cocok untuk mahasiswa atau developer pemula yang ingin benar-benar memahami fondasi aplikasi web dengan Express.js dan Handlebars.
+
+**📖 [Baca Selengkapnya →](pages/penjelasan-tutorial-project-web-absensi-bagian-1.md)**
+
+---
+
 ### [Tutorial DBML (Database Markup Language): Desain Database dengan Mudah](pages/tutorial-dbml-database-markup-language.md)
 
 **📅 Dipublikasikan: 31 Maret 2026**
@@ -171,4 +197,4 @@ Cocok untuk pemula yang ingin memulai menulis dokumentasi atau content dengan fo
 
 ---
 
-_Terakhir diupdate: 7 April 2026_
+_Terakhir diupdate: 18 Mei 2026_
